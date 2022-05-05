@@ -7,3 +7,13 @@ API to configure and launch new state-estimation jobs
 
     $ go build
     $ go run main.go
+
+## Configuration
+
+Configuration parameters can be specified in the conf.json file:
+
+    {
+        "address": "localhost:6379",
+        "password": "", 
+        "database": 0
+    }
