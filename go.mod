@@ -2,7 +2,10 @@ module github.com/sogno-platform/state-estimation-api
 
 go 1.17
 
-require github.com/gin-gonic/gin v1.7.7
+require (
+	github.com/gin-gonic/gin v1.7.7
+	gopkg.in/yaml.v3 v3.0.0-20220512140231-539c8e751b99
+)
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect

@@ -3,15 +3,16 @@
 package config
 
 import (
-	"encoding/json"
+	"io/ioutil"
 	"log"
-	"os"
+
+	"gopkg.in/yaml.v3"
 )
 
 type Config struct {
-	Address  string `json:"address"`
-	Password string `json:"password"`
-	Database int    `json:"database"`
+	Address  string `yaml:"address"`
+	Password string `yaml:"password"`
+	Database int    `yaml:"database"`
 }
 
 func NewConfig() *Config {
@@ -27,16 +28,15 @@ func NewConfig() *Config {
 
 func (c *Config) ParseConfig() {
 
-	file, err := os.Open("conf.json")
+	file, err := ioutil.ReadFile("config.yaml")
 	if err != nil {
+		log.Println(err)
 		log.Println("Could not open config file. Using default config.")
 		return
 	}
-	defer file.Close()
 
-	decoder := json.NewDecoder(file)
 	configuration := Config{}
-	err = decoder.Decode(&configuration)
+	err = yaml.Unmarshal(file, &configuration)
 	if err != nil {
 		log.Println("Error loading config: " + err.Error())
 		return

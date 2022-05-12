@@ -1,0 +1,3 @@
+address: "localhost:1234"
+password: "foo"
+database: 1234
