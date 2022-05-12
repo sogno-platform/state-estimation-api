@@ -9,19 +9,36 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-type Config struct {
+type DbConfig struct {
 	Address  string `yaml:"address"`
 	Password string `yaml:"password"`
 	Database int    `yaml:"database"`
 }
 
+type AmqpConfig struct {
+	Host     string `yaml:"host"`
+	Port     int    `yaml:"port"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+}
+
+type Config struct {
+	Database DbConfig   `yaml:"database"`
+	Amqp     AmqpConfig `yaml:"amqpBroker"`
+}
+
 func NewConfig() *Config {
 	// Load default values
-	c := &Config{
-		Address:  "localhost:6379",
-		Password: "", // no password set
-		Database: 0,  // use default DB
-	}
+	c := &Config{}
+
+	c.Database.Address = "localhost:6379"
+	c.Database.Password = "" // no password set
+	c.Database.Database = 0  // use default DB
+
+	c.Amqp.Host = "localhost"
+	c.Amqp.Port = 5672
+	c.Amqp.User = ""     // no password set
+	c.Amqp.Password = "" // no password set
 
 	return c
 }

@@ -1,3 +1,10 @@
-address: "localhost:1234"
-password: "foo"
-database: 1234
+database:
+  address: "localhost:1234"
+  password: "foo"
+  database: 1234
+
+amqpBroker:
+  host: "localhost"
+  port: 5672
+  user: foo
+  password: bar

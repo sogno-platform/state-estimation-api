@@ -13,7 +13,15 @@ API to configure and launch new state-estimation jobs
 Configuration parameters can be specified in the confg.yaml file:
 
 ```yml  
-address: "localhost:6379"
-password: ""
-database: 0
+database:
+  address: "localhost:1234"
+  password: ""
+  database: 1234
+
+amqpBroker:
+  host: "localhost"
+  port: 5672
+  user: ""
+  password: ""
+
 ``` 
