@@ -10,10 +10,10 @@ API to configure and launch new state-estimation jobs
 
 ## Configuration
 
-Configuration parameters can be specified in the conf.json file:
+Configuration parameters can be specified in the confg.yaml file:
 
-    {
-        "address": "localhost:6379",
-        "password": "", 
-        "database": 0
-    }
+```yml  
+"address": "localhost:6379",
+"password": "", 
+"database": 0
+ ``` 
